@@ -1,2 +1,2 @@
-# linechartpanel-poc
+# CodeSandboxes
 Created with CodeSandbox
