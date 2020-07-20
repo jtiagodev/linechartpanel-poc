@@ -68,12 +68,11 @@ export const parseChartData = data => {
             y: 120
           }
         ],
-        backgroundColor: ["rgba(0, 0, 0, 0.0)"],
-        borderColor: ["#E0D011"],
-        pointBackgroundColor: "#E0D011",
+        backgroundColor: "rgba(0, 0, 0, 0.0)",
+        borderColor: "#E0D011",
         borderWidth: 2,
         lineTension: 0,
-        pointRadius: 4
+        pointBackgroundColor: "white"
       },
       {
         label: "DF aprovados",
@@ -115,12 +114,13 @@ export const parseChartData = data => {
             y: 120
           }
         ],
-        backgroundColor: ["rgba(0, 0, 0, 0.0)"],
-        borderColor: ["#81BC00"],
-        pointBackgroundColor: "#81BC00",
+        backgroundColor: "rgba(0, 0, 0, 0.0)",
+        borderColor: "#81BC00",
         borderWidth: 2,
+        pointRadius: 4,
         lineTension: 0,
-        pointRadius: 4
+        pointBackgroundColor: "white",
+        showLine: true
       }
     ]
   };
@@ -128,6 +128,12 @@ export const parseChartData = data => {
 };
 
 export const lineChartOptions = {
+  elements: {
+    point: {
+      radius: 4,
+      pointStyle: "circle"
+    }
+  },
   tooltips: {
     enabled: false
   },
