@@ -1,5 +1,6 @@
 import * as R from "ramda";
 import produce from "immer";
+import { formatNumber, translate_this_label } from "./translate";
 
 export const trimDataWithDateRange = (from, to, data) => {
   const dataSetsResult = data.datasets.map(dataSet => {
@@ -133,6 +134,16 @@ export const lineChartOptions = {
   scales: {
     xAxes: [
       {
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          // Include a dollar sign in the ticks
+          callback: function(value, index, values) {
+            return translate_this_label(value);
+          },
+          maxTicksLimit: 11
+        },
         type: "time"
       }
     ],

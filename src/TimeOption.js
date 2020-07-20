@@ -11,17 +11,21 @@ const styles = theme => ({
     padding: `0px 8px`,
     borderRadius: 8 * 3,
     maxWidth: "150px",
-    fontSize: "14px"
+    fontSize: "14px",
+    cursor: "pointer",
+    userSelect: "none"
   },
   timeOptionClicked: {
     display: "flex",
     alignSelf: "center",
     color: "#ffffff",
     backgroundColor: "#81BC00",
-    padding: `0px 8px`,
+    padding: `8px 8px`,
     borderRadius: 8 * 3,
     maxWidth: "150px",
-    fontSize: "14px"
+    fontSize: "14px",
+    cursor: "pointer",
+    userSelect: "none"
   }
 });
 
