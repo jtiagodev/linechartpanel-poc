@@ -1,8 +1,9 @@
 import React from "react";
+import { Typography } from "@material-ui/core";
 
 const Header = props => {
-  const { text } = props;
-  return <span>Eficiência de Aprovação</span>;
+  const { title } = props;
+  return <Typography variant="h5">{title}</Typography>;
 };
 
 export default Header;

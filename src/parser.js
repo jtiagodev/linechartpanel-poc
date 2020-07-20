@@ -1,3 +1,29 @@
+import * as R from "ramda";
+import produce from "immer";
+
+export const trimDataWithDateRange = (from, to, data) => {
+  const dataSetsResult = data.datasets.map(dataSet => {
+    const filteredData = R.filter(
+      dataEntry => dataEntry.t < to && dataEntry.t > from,
+      dataSet.data
+    );
+
+    const dataSetResult = {
+      ...dataSet,
+      data: filteredData
+    };
+
+    return dataSetResult;
+  });
+
+  const objectResult = {
+    ...data,
+    datasets: dataSetsResult
+  };
+
+  return objectResult;
+};
+
 export const parseChartData = data => {
   const res = {
     datasets: [

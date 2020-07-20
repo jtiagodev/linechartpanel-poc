@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Flex } from "./Grid";
 import TimePicker from "./TimePicker";
 import { Grid } from "@material-ui/core";
@@ -8,29 +8,25 @@ const demoTimeOptions = [
   {
     value: moment()
       .subtract(1, "weeks")
-      .startOf("isoWeek")
-      .format("DD-MM-YYYY"),
+      .startOf("isoWeek"),
     label: "Semana passada"
   },
   {
     value: moment()
       .subtract(1, "months")
-      .startOf("isoMonth")
-      .format("DD-MM-YYYY"),
+      .startOf("isoMonth"),
     label: "Mês passado"
   },
   {
     value: moment()
       .subtract(3, "months")
-      .startOf("isoMonth")
-      .format("DD-MM-YYYY"),
+      .startOf("isoMonth"),
     label: "Últimos 3 meses"
   },
   {
     value: moment()
       .subtract(6, "months")
-      .startOf("isoMonth")
-      .format("DD-MM-YYYY"),
+      .startOf("isoMonth"),
     label: "Últimos 6 meses"
   }
 ];
@@ -47,7 +43,6 @@ const TimeOptions = props => {
               key={i}
               onClick={evt => {
                 setSince(timeOption.value);
-                alert(timeOption.value);
               }}
             >
               {timeOption.label}
@@ -57,15 +52,7 @@ const TimeOptions = props => {
       </Grid>
       <Grid xs={4}>
         <Flex justifyContent="flex-end">
-          <TimePicker
-            since={since}
-            setSince={setSince}
-            to={to}
-            setTo={setTo}
-            // onChange={evt => {
-            //   alert(evt.target.value);
-            // }}
-          />
+          <TimePicker since={since} setSince={setSince} to={to} setTo={setTo} />
         </Flex>
       </Grid>
     </Grid>
