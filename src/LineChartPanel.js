@@ -19,10 +19,10 @@ const LineChartPanel = props => {
 
   return (
     <Flex flexDirection="column">
-      <Flex>
+      <Flex style={{ marginLeft: "15px" }}>
         <Header title={title} />
       </Flex>
-      <Flex style={{ marginTop: "20px" }}>
+      <Flex style={{ margin: "15px 45px 15px 15px" }}>
         <TimeOptions since={since} setSince={setSince} to={to} setTo={setTo} />
       </Flex>
       <Flex style={{ marginTop: "20px" }}>

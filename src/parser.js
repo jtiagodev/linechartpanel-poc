@@ -69,8 +69,10 @@ export const parseChartData = data => {
         ],
         backgroundColor: ["rgba(0, 0, 0, 0.0)"],
         borderColor: ["#E0D011"],
+        pointBackgroundColor: "#E0D011",
         borderWidth: 2,
-        lineTension: 0
+        lineTension: 0,
+        pointRadius: 4
       },
       {
         label: "DF aprovados",
@@ -114,8 +116,10 @@ export const parseChartData = data => {
         ],
         backgroundColor: ["rgba(0, 0, 0, 0.0)"],
         borderColor: ["#81BC00"],
+        pointBackgroundColor: "#81BC00",
         borderWidth: 2,
-        lineTension: 0
+        lineTension: 0,
+        pointRadius: 4
       }
     ]
   };
@@ -123,6 +127,9 @@ export const parseChartData = data => {
 };
 
 export const lineChartOptions = {
+  tooltips: {
+    enabled: false
+  },
   scales: {
     xAxes: [
       {
@@ -140,5 +147,11 @@ export const lineChartOptions = {
     ]
   },
   // https://www.chartjs.org/docs/latest/configuration/legend.html
-  legend: { position: "bottom" }
+  legend: {
+    position: "bottom",
+    labels: {
+      usePointStyle: true,
+      boxWidth: 6
+    }
+  }
 };

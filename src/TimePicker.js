@@ -7,7 +7,7 @@ const MuiDatePickerFromTo = props => {
   const { since, setSince, to, setTo } = props;
 
   return (
-    <Flex flexDirection="row">
+    <Flex alignItems="center" flexDirection="row">
       <Flex style={{ marginRight: "10px" }}>
         <TextField
           id={`datepicker-from`}
