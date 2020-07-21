@@ -1,6 +1,6 @@
 import * as R from "ramda";
 import produce from "immer";
-import { formatNumber, translate_this_label } from "./translate";
+import { formatNumber, translate_this_label, hexToRgb } from "./translate";
 
 export const trimDataWithDateRange = (from, to, data) => {
   const dataSetsResult = data.datasets.map(dataSet => {
@@ -135,7 +135,34 @@ export const lineChartOptions = {
     }
   },
   tooltips: {
-    enabled: false
+    enabled: true,
+    yAlign: "bottom",
+    callbacks: {
+      title: function(tooltipItem, data) {
+        return data.datasets[tooltipItem[0].datasetIndex].label;
+      },
+      label: function(tooltipItem, data) {
+        return tooltipItem.value;
+      },
+      // https://codepen.io/ezra_siton/pen/dyoQeGe?editors=1011
+      // chart.config.data.datasets[tooltipItem.datasetIndex].borderColor
+      labelColor: function(tooltipItem, data) {
+        if (tooltipItem.datasetIndex === 0) {
+          return {
+            borderColor: "#FFFFFF",
+            backgroundColor: "#FFCD2E"
+          };
+        }
+      }
+    },
+    titleFontSize: 12,
+    titleFontColor: "white",
+    titleFontStyle: "normal",
+    bodyFontColor: "white",
+    bodyFontSize: 24,
+    displayColors: false,
+    yPadding: 10,
+    xPadding: 10
   },
   scales: {
     xAxes: [
