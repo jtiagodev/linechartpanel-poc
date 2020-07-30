@@ -25,106 +25,26 @@ export const trimDataWithDateRange = (from, to, data) => {
   return objectResult;
 };
 
-export const parseChartData = data => {
-  const res = {
-    datasets: [
-      {
-        label: "PO aprovados",
-        data: [
-          {
-            t: new Date("2019-12-20"),
-            y: 150
-          },
-          {
-            t: new Date("2020-01-20"),
-            y: 145
-          },
-          {
-            t: new Date("2020-02-20"),
-            y: 145
-          },
-          {
-            t: new Date("2020-03-20"),
-            y: 140
-          },
-          {
-            t: new Date("2020-04-20"),
-            y: 110
-          },
-          {
-            t: new Date("2020-05-20"),
-            y: 130
-          },
-          {
-            t: new Date("2020-06-20"),
-            y: 140
-          },
-          {
-            t: new Date("2020-07-20"),
-            y: 90
-          },
-          {
-            t: new Date("2020-08-20"),
-            y: 120
-          }
-        ],
-        backgroundColor: "rgba(0, 0, 0, 0.0)",
-        borderColor: "#E0D011",
-        borderWidth: 2,
-        lineTension: 0,
-        pointBackgroundColor: "white"
-      },
-      {
-        label: "DF aprovados",
-        data: [
-          {
-            t: new Date("2019-12-20"),
-            y: 40
-          },
-          {
-            t: new Date("2020-01-20"),
-            y: 45
-          },
-          {
-            t: new Date("2020-02-20"),
-            y: 45
-          },
-          {
-            t: new Date("2020-03-20"),
-            y: 45
-          },
-          {
-            t: new Date("2020-04-20"),
-            y: 45
-          },
-          {
-            t: new Date("2020-05-20"),
-            y: 45
-          },
-          {
-            t: new Date("2020-06-20"),
-            y: 45
-          },
-          {
-            t: new Date("2020-07-20"),
-            y: 100
-          },
-          {
-            t: new Date("2020-08-20"),
-            y: 120
-          }
-        ],
-        backgroundColor: "rgba(0, 0, 0, 0.0)",
-        borderColor: "#81BC00",
-        borderWidth: 2,
-        pointRadius: 4,
-        lineTension: 0,
-        pointBackgroundColor: "white",
-        showLine: true
-      }
-    ]
-  };
-  return res;
+export const parseChartData = (datasets = []) => {
+  let resDatasets = [];
+
+  datasets.forEach(dataSet => {
+    const entry = {
+      label: dataSet.label,
+      backgroundColor: "rgba(0, 0, 0, 0.0)",
+      borderColor: dataSet.color,
+      borderWidth: 2,
+      pointRadius: 4,
+      lineTension: 0,
+      pointBackgroundColor: "white",
+      showLine: true,
+      data: dataSet.data.map(dataEntry => {
+        return { t: new Date(dataEntry.t), y: dataEntry.y };
+      })
+    };
+    resDatasets.push(entry);
+  });
+  return { datasets: resDatasets };
 };
 
 export const lineChartOptions = {
